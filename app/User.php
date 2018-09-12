@@ -44,6 +44,10 @@ class User extends Authenticatable
         foreach ($query->get() as $child)
         {
             $count += $child->countChildren() + 1; // Plus 1 to count the direct child
+            if ($count == 2)
+            {
+                break;
+            }
         }
         return $count;
     }
